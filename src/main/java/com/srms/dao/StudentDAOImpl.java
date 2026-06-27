@@ -33,7 +33,7 @@ public class StudentDAOImpl implements StudentDAO{
     private static final String SQL_COUNT =
         "SELECT COUNT(*) FROM students";
 
-    // ── INSERT ────────────────────────────────────────────────────────────────
+    // ── INSERT 
     @Override
     public boolean addStudent(Student student) {
         try (Connection conn = DBConnection.getConnection();
@@ -54,7 +54,7 @@ public class StudentDAOImpl implements StudentDAO{
         }
     }
 
-    // ── SELECT ALL ────────────────────────────────────────────────────────────
+    // ── SELECT ALL 
     @Override
     public List<Student> getAllStudents() {
         List<Student> students = new ArrayList<>();
@@ -73,7 +73,7 @@ public class StudentDAOImpl implements StudentDAO{
         return students;
     }
 
-    // ── SELECT BY ID ──────────────────────────────────────────────────────────
+    // ── SELECT BY ID 
     @Override
     public Student getStudentById(int id) {
         try (Connection conn = DBConnection.getConnection();
@@ -92,7 +92,7 @@ public class StudentDAOImpl implements StudentDAO{
         return null;
     }
 
-    // ── SEARCH BY NAME ────────────────────────────────────────────────────────
+    // ── SEARCH BY NAME 
     @Override
     public List<Student> searchStudentsByName(String name) {
         List<Student> students = new ArrayList<>();
@@ -113,7 +113,7 @@ public class StudentDAOImpl implements StudentDAO{
         return students;
     }
 
-    // ── UPDATE ────────────────────────────────────────────────────────────────
+    // ── UPDATE
     @Override
     public boolean updateStudent(Student student) {
         try (Connection conn = DBConnection.getConnection();
@@ -135,7 +135,7 @@ public class StudentDAOImpl implements StudentDAO{
         }
     }
 
-    // ── DELETE ────────────────────────────────────────────────────────────────
+    // ── DELETE 
     @Override
     public boolean deleteStudent(int id) {
         try (Connection conn = DBConnection.getConnection();
@@ -150,7 +150,7 @@ public class StudentDAOImpl implements StudentDAO{
         }
     }
 
-    // ── COUNT ─────────────────────────────────────────────────────────────────
+    // ── COUNT 
     @Override
     public int getTotalCount() {
         try (Connection conn = DBConnection.getConnection();
@@ -165,7 +165,6 @@ public class StudentDAOImpl implements StudentDAO{
         return 0;
     }
 
-    // ── Helper: map ResultSet row → Student object ────────────────────────────
     private Student mapRow(ResultSet rs) throws SQLException {
         return new Student(
             rs.getInt("id"),
